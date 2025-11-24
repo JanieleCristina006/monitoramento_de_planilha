@@ -1,0 +1,1181 @@
+{
+  "name": "Monitoramento de planilha",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Loja ",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "id",
+              "placeholder": "id do produto",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "nome",
+              "placeholder": "Nome do produto..."
+            },
+            {
+              "fieldLabel": "categoria",
+              "placeholder": "Categoria do produto",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "valor",
+              "placeholder": "Preço do produto...",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "url",
+              "placeholder": "Url do produto..."
+            },
+            {
+              "fieldLabel": "quantidade",
+              "fieldType": "number",
+              "placeholder": "Quantidade em estoque"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.3,
+      "position": [
+        -208,
+        -432
+      ],
+      "id": "64d2a849-4e3c-4a4a-85d8-9fdefc766263",
+      "name": "On form submission",
+      "webhookId": "4f6d7386-7cd0-41e2-b661-3c402bbfbaa2"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc",
+          "mode": "list",
+          "cachedResultName": "Loja ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Produtos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "nome": "={{ $json.nome }}",
+            "categoria": "={{ $json.categoria }}",
+            "valor": "={{ $json.valor }}",
+            "url": "={{ $json.url }}",
+            "quantidade": "={{ $json.quantidade }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "nome",
+              "displayName": "nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "categoria",
+              "displayName": "categoria",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "valor",
+              "displayName": "valor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "quantidade",
+              "displayName": "quantidade",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -16,
+        -432
+      ],
+      "id": "de3aaade-9b1c-42e8-a1b4-da26d6408caf",
+      "name": "Adicionar Produtos",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ANId0qAGMK3eg4Hw",
+          "name": "Google account (janielecristina539@gmail.com)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc",
+          "mode": "list",
+          "cachedResultName": "Loja ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Produtos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "id",
+              "lookupValue": "1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        384,
+        -448
+      ],
+      "id": "57ce873e-d870-406e-a0b2-8947b71bb377",
+      "name": "Buscar Produtos",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ANId0qAGMK3eg4Hw",
+          "name": "Google account (janielecristina539@gmail.com)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc",
+          "mode": "list",
+          "cachedResultName": "Loja ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Produtos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "2",
+            "valor": "55",
+            "nome": "Mouse fodão"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "nome",
+              "displayName": "nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "categoria",
+              "displayName": "categoria",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "valor",
+              "displayName": "valor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        176,
+        -432
+      ],
+      "id": "bed7a6f9-9ff7-4825-a97c-8c5c0086c671",
+      "name": "Atualizar item",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ANId0qAGMK3eg4Hw",
+          "name": "Google account (janielecristina539@gmail.com)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc",
+          "mode": "list",
+          "cachedResultName": "Loja ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Produtos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit#gid=0"
+        },
+        "startIndex": 4,
+        "numberToDelete": 2
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        592,
+        -416
+      ],
+      "id": "883cb977-fde3-4957-9668-e725f6238662",
+      "name": "Deletar linha",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ANId0qAGMK3eg4Hw",
+          "name": "Google account (janielecristina539@gmail.com)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc",
+          "mode": "list",
+          "cachedResultName": "Loja ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Produtos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit#gid=0"
+        },
+        "event": "rowUpdate",
+        "options": {
+          "columnsToWatch": [
+            "quantidade"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -384,
+        448
+      ],
+      "id": "5ad5c4a3-8cb0-471b-a96b-c0aae5b0c164",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "kQMoyKqmNcwdIUB6",
+          "name": "Google Sheets Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fdf6acf5-82d5-4304-8b0b-664f3addfa6e",
+              "leftValue": "={{ $json.quantidade }}",
+              "rightValue": 5,
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -176,
+        448
+      ],
+      "id": "7cb76816-d357-42dc-b3a4-41c80282e773",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc",
+          "mode": "list",
+          "cachedResultName": "Loja ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 699883612,
+          "mode": "list",
+          "cachedResultName": "Pedido Fornecedor",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit#gid=699883612"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "nome": "={{ $json.nome }}",
+            "quantidade": "={{ $json.quantidade }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "nome",
+              "displayName": "nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "quantidade",
+              "displayName": "quantidade",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        16,
+        96
+      ],
+      "id": "0a90576c-d258-49cf-ad8e-f1d51a05057f",
+      "name": "Atualizar Fornecedor",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ANId0qAGMK3eg4Hw",
+          "name": "Google account (janielecristina539@gmail.com)"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc",
+          "mode": "list",
+          "cachedResultName": "Loja ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 699883612,
+          "mode": "list",
+          "cachedResultName": "Pedido Fornecedor",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit#gid=699883612"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "id",
+              "lookupValue": "={{ $('Google Sheets Trigger').item.json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        32,
+        544
+      ],
+      "id": "20ed7732-88a5-4538-9619-9f61ea723654",
+      "name": "Buscar estoque fornecedor",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ANId0qAGMK3eg4Hw",
+          "name": "Google account (janielecristina539@gmail.com)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "88625bb3-fcf1-4ef3-9720-122aa56e4ba0",
+              "leftValue": "={{ $json.quantidade }}",
+              "rightValue": 5,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        448,
+        544
+      ],
+      "id": "15f4d774-8799-4106-a3ef-e1c1257f432e",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc",
+          "mode": "list",
+          "cachedResultName": "Loja ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Produtos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "id",
+              "lookupValue": "={{ $json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        240,
+        544
+      ],
+      "id": "754a83ed-86ce-411c-aa05-84bad38cfcae",
+      "name": "Planilha Produto",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ANId0qAGMK3eg4Hw",
+          "name": "Google account (janielecristina539@gmail.com)"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        656,
+        640
+      ],
+      "id": "93afac63-f9de-49ec-a1b3-7b2644dab1ab",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc",
+          "mode": "list",
+          "cachedResultName": "Loja ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 699883612,
+          "mode": "list",
+          "cachedResultName": "Pedido Fornecedor",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DfliSmOLoY-DVlabvohRccjtf-7c2A6fJacqx71lYyc/edit#gid=699883612"
+        },
+        "startIndex": "={{ $('Planilha Produto').item.json.row_number }}"
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        656,
+        448
+      ],
+      "id": "3d8e2318-6f8d-4ff5-b04d-37fba6a43367",
+      "name": "Deleta da planilha de fornecedores",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ANId0qAGMK3eg4Hw",
+          "name": "Google account (janielecristina539@gmail.com)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Monitoramento de planilha\n",
+        "height": 848,
+        "width": 1520,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -544,
+        -64
+      ],
+      "typeVersion": 1,
+      "id": "bca00b5b-cbcb-469c-909b-cefbaf382207",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "resource": "spreadsheet",
+        "title": "Curso n8n",
+        "sheetsUi": {
+          "sheetValues": [
+            {
+              "title": "alunos"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -176,
+        912
+      ],
+      "id": "e47eada3-0fd9-40ea-ba84-b62b9178ff9e",
+      "name": "Cria Planilha",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ANId0qAGMK3eg4Hw",
+          "name": "Google account (janielecristina539@gmail.com)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Cria Planilha').item.json.spreadsheetUrl }}",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Cria Planilha').item.json.sheets[0].properties.sheetId }}",
+          "mode": "id"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "nome",
+              "displayName": "nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        240,
+        912
+      ],
+      "id": "25bfdfb3-d8e2-49af-a777-b6f2d804b28f",
+      "name": "Popular Dados",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ANId0qAGMK3eg4Hw",
+          "name": "Google account (janielecristina539@gmail.com)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "45eafc4e-6c2d-403d-82d0-7df0a77bfa8f",
+              "name": "nome",
+              "value": "Janiele Cristina",
+              "type": "string"
+            },
+            {
+              "id": "45d8eb82-ec23-4094-8260-9354b7807875",
+              "name": "email",
+              "value": "janiele@teste.com",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        32,
+        912
+      ],
+      "id": "9416fa08-4891-4f61-aeff-548fd027f5af",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -400,
+        1248
+      ],
+      "id": "1e70955d-9d8e-45ef-bc8b-2048c8920310",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "sendTo": "janielecristina006@gmail.com",
+        "subject": "Nova compra de produtos da loja",
+        "message": "=\n\n<!doctype html>\n<html lang=\"pt-BR\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <title>Pedido de Reposição</title>\n  <style>\n    /* Estilos inline simples para melhor compatibilidade entre clientes de e-mail */\n    body { font-family: Arial, Helvetica, sans-serif; background-color: #f4f6f8; margin: 0; padding: 20px; }\n    .email-container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }\n    .header { background: #0b74de; color: #ffffff; padding: 16px 20px; }\n    .header h1 { margin: 0; font-size: 18px; }\n    .content { padding: 20px; color: #333333; line-height: 1.4; }\n    .product-table { width: 100%; border-collapse: collapse; margin-top: 12px; }\n    .product-table th, .product-table td { text-align: left; padding: 10px; border-bottom: 1px solid #e6e9ee; }\n    .product-table th { background: #f7fafc; font-weight: 600; }\n    .cta { display: block; width: fit-content; margin: 18px 0; padding: 10px 16px; background: #1e90ff; color: #fff; text-decoration: none; border-radius: 6px; }\n    .footer { font-size: 12px; color: #7a8593; padding: 16px 20px; background: #fbfdff; }\n    @media (max-width: 480px) { .header h1 { font-size: 16px; } }\n  </style>\n</head>\n<body>\n  <div class=\"email-container\">\n    <div class=\"header\">\n      <h1>Aviso de Reposição de Produto</h1>\n    </div>\n\n    <div class=\"content\">\n      <p>Olá fornecedor,aviso!</p>\n\n      <p>Detectamos que o seguinte item precisa ser reposto. Seguem os detalhes:</p>\n\n      <table class=\"product-table\" role=\"presentation\">\n        <tr>\n          <th>Produto</th>\n          <td>{{ $json.nome }}</td>\n        </tr>\n        <tr>\n          <th>Quantidade necessária</th>\n          <td>{{ $json.quantidade }}</td>\n        </tr>\n        <tr>\n          <th>ID do produto</th>\n          <td>{{ $json.id }}</td>\n        </tr>\n      </table>\n\n      <p>Por favor, confirme disponibilidade e prazo de entrega. Se estiver tudo OK, responda este e‑mail ou utilize o link abaixo para confirmar o pedido.</p>\n\n      <p>Se preferir, responda indicando preço e prazo — entraremos em contato para finalizar.</p>\n\n      <p style=\"margin-top: 8px;\">Atenciosamente,<br/>Equipe de Compras</p>\n    </div>\n\n    <div class=\"footer\">\n      <p>Este é um aviso automático gerado pelo sistema de estoque. Caso já tenha realizado a reposição, desconsidere este e‑mail.</p>\n    </div>\n  </div>\n</body>\n</html>\n",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        336,
+        0
+      ],
+      "id": "f97b85c0-7d3d-4c60-a97f-f9d77a63ae23",
+      "name": "Enviar email para o fornecedor",
+      "webhookId": "b12f5298-a6fd-44b8-ab3c-385e546ba1b7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "79DmtlnTEdDTWGX8",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "janielecristina006@gmail.com",
+        "subject": "Falha ao cadastrar produtos na planilha de fornecedore",
+        "message": "Falha ao cadastrar produto na planilha de fornecedores",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        320,
+        208
+      ],
+      "id": "d376e19a-1f5e-4e3e-a617-182e14d6dcd2",
+      "name": "Falha ao cadastrar produtos na planilha de fornecedores",
+      "webhookId": "a41cd1c3-a830-49aa-8085-4d411ce78ece",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "79DmtlnTEdDTWGX8",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 5,
+        "filters": {
+          "sender": "Janiele"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -192,
+        1248
+      ],
+      "id": "243658da-f32f-4303-adb6-43c812dbca88",
+      "name": "Get many messages",
+      "webhookId": "a618601b-fd2c-4aba-958b-405ff40436ee",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "79DmtlnTEdDTWGX8",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7c4197b4-09a4-437e-97c6-15110c4d437b",
+              "leftValue": "={{ $json.From.split(\" \").last().slice(1,-1) }}",
+              "rightValue": "janielecristina45@gmail.com",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        16,
+        1248
+      ],
+      "id": "4d7648ef-879c-4648-9fb0-b0271514a3b0",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        304,
+        1376
+      ],
+      "id": "14b6c634-e7ea-41ce-a5e0-040c6d37d120",
+      "name": "marcar como lido",
+      "webhookId": "f28620a0-641a-4473-91fc-bb89a9024cb1",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "79DmtlnTEdDTWGX8",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $json.id }}",
+        "labelIds": [
+          "YELLOW_STAR"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        320,
+        1168
+      ],
+      "id": "a5ee1379-0aea-4b61-94c5-ea59deed7444",
+      "name": "adicionar como importante",
+      "webhookId": "03aff35f-99df-4ade-b2cb-2d6709940a2c",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "79DmtlnTEdDTWGX8",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        592,
+        1168
+      ],
+      "id": "af4bd07a-65ef-41f5-939a-8ad22a90659f",
+      "name": "marcar como lido1",
+      "webhookId": "f28620a0-641a-4473-91fc-bb89a9024cb1",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "79DmtlnTEdDTWGX8",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "On form submission": [
+      {
+        "json": {
+          "id": "5",
+          "nome": "Carregador",
+          "categoria": "carregador",
+          "valor": "80",
+          "url": "",
+          "quantidade": 6,
+          "submittedAt": "2025-11-19T14:30:20.759-05:00",
+          "formMode": "test"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Adicionar Produtos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Atualizar Fornecedor",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Buscar estoque fornecedor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar estoque fornecedor": {
+      "main": [
+        [
+          {
+            "node": "Planilha Produto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Planilha Produto": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Deleta da planilha de fornecedores",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cria Planilha": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Popular Dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many messages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Atualizar Fornecedor": {
+      "main": [
+        [
+          {
+            "node": "Enviar email para o fornecedor",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Falha ao cadastrar produtos na planilha de fornecedores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many messages": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "adicionar como importante",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "marcar como lido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "adicionar como importante": {
+      "main": [
+        [
+          {
+            "node": "marcar como lido1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "c696520e-5381-4254-aafc-fe572f2abd2a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "7db42072e388a6fae2ea2e03d7287b71e824aea9c93ced218587d7d4d5c06f47"
+  },
+  "id": "KI1pUlqCQZRlusoF",
+  "tags": [
+    {
+      "updatedAt": "2025-11-19T16:30:04.879Z",
+      "createdAt": "2025-11-19T16:30:04.879Z",
+      "id": "pJW8bKcit2BUDCiw",
+      "name": "curso"
+    }
+  ]
+}
